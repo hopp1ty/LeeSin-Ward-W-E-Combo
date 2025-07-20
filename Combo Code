@@ -1,0 +1,60 @@
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
+import org.jnativehook.keyboard.NativeKeyEvent;
+import org.jnativehook.keyboard.NativeKeyListener;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
+
+import java.io.*;
+import java.lang.Thread;
+
+public class LeeSinMacro implements NativeKeyListener{
+
+private Robot robot;
+
+public LeeSinMacro(){
+
+try {
+
+ robot = new Robot();
+} catch (AWTException e){
+	System.err.println("");
+}
+
+public static void main(String[]args){
+
+	try {
+	Global Screen.registerNativeHook();
+} catch (NativeHookException ex){
+	System.err.println(err.getMessage());
+	System.exit(1);
+}
+
+	GlobalScreen.addNativeKeyListener(new LeeSinMacro());
+}
+
+	@Override
+	public void LeeSinWardCombo(NativeKeyEvent ){
+
+	if(e.getKeyCode() == NativeKeyEvent.VC_6){
+		try{
+
+		Thread.sleep(100);
+		robot.keyPress(KeyEvent.VK_W);
+		robot.keyRelease(KeyEvent.VK_W);
+		Thread.sleep(200);
+		robot.keyPress(KeyEvent.VK_E);
+		robot.KeyRelease(KeyEvent.VK_E);
+
+	} catch (Exception ex){
+	System.err.println(ex.getMessage());	
+	}
+		
+}
+}
+
+
+	
+	
